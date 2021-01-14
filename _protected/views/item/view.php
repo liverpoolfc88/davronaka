@@ -11,6 +11,8 @@ $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Items'), 'url' => ['
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
+
+<?=Yii::$app->controller->renderPartial("//layouts/headeradmin")?>
 <div class="item-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
@@ -35,7 +37,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'sales',
             'photo',
             'views',
-            'menu_id',
+            'menu.name',
             'created_at',
             'updated_at',
         ],

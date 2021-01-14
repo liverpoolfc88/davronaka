@@ -8,6 +8,7 @@ use app\models\ItemSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * ItemController implements the CRUD actions for Item model.
@@ -66,8 +67,26 @@ class ItemController extends Controller
     {
         $model = new Item();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post()) ) {
+            function rasm($model,$qiymat){
+                $file = UploadedFile::getInstance($model, $qiymat);
+                if (isset($file))
+                {
+                    $filename = uniqid() . '.' . $file->extension;
+                    $path = 'uploads/';
+                    if (!file_exists($path)) {
+                        mkdir($path,0777,true);
+                    }
+                    $path = 'uploads/' . $filename;
+                    if ($file->saveAs($path))
+                    {
+                        return $path;
+                    }
+                }
+            }
+            $model->photo = rasm($model, 'photo');
+            $model->save();
+            return $this->redirect(['index']);
         }
 
         return $this->render('create', [
@@ -85,9 +104,33 @@ class ItemController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $model2 = clone $model;
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post()) ) {
+            function qayta($model,$rasm, $model2){
+                $file = UploadedFile::getInstance($model, $rasm);
+                if ($model2->photo==null || $file!=null) {
+                    if (isset($file))
+                    {
+                        $filename = uniqid() . '.' . $file->extension;
+                        $path = 'uploads/' . $filename;
+                        $path2 = 'uploads/' . $model2->photo;
+
+                        if (is_file($path2)) {
+                            @unlink($path2);
+                        }
+                        if ($file->saveAs($path))
+                        {
+                            return $path;
+                        }
+                    }
+                    else return $model2->photo;
+                }
+                else return $model2->photo;
+            }
+            $model->photo = qayta($model, 'photo', $model2);
+            $model->save();
+            return $this->redirect(['index']);
         }
 
         return $this->render('update', [

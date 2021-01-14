@@ -20,13 +20,13 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h1><?= Html::encode($this->title) ?></h1>
     <p>
-        <?= Html::a(Yii::t('app', 'Create Item'), ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('app', 'Menu qo`shish'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
-//        'layout' => '{items}{pager}',
+        'layout' => '{items}{pager}',
         'columns' => [
             ['class' => 'yii\grid\SerialColumn', 'header' => 't/r'],
 //            [
@@ -54,22 +54,20 @@ $this->params['breadcrumbs'][] = $this->title;
 //            'update_at',
             [
                 'class' => 'yii\grid\ActionColumn',
-//                'header' => Html::a(Yii::t('yii', 'Qo`shish'), ['create'], ['title' => 'Янги банк номини киритиш', 'class' => 'btn btn-danger bank']),
                 'template' => '{view}  {update}  {delete}',
-
                 'buttons' => [
                     'view' => function ($url, $model) {
                         return Html::a('', $url,
                             [
-                                'title' => Yii::t('app', 'Кўриш'),
-                                'class' => 'fas fa-eye bank'
+
+                                'class' => 'fas fa-eye create'
                             ]);
                     },
                     'update' => function ($url, $model) {
-                        return Html::a('<i class=\'fas fa-pencil-alt\'></i>', $url,
+                        return Html::a('', $url,
                             [
-                                'title' => Yii::t('app', 'Тахрирлаш'),
-                                'class' => 'bank'
+
+                                'class' => 'fas fa-pencil-alt '
                             ]);
                     },
                     'delete' => function ($url, $model) {

@@ -51,10 +51,10 @@ class Menu extends \yii\db\ActiveRecord
     public function beforeSave($insert){
         if($insert){
 
-            $this->create_at = date('Y-m-d');
+            $this->create_at = date('Y-m-d H:i:s');
         }else{
 
-            $this->update_at = date('Y-m-d');
+            $this->update_at = date('Y-m-d H:i:s');
         }
         return parent::beforeSave($insert);
     }

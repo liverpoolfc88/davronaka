@@ -33,7 +33,7 @@ class Item extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['names', 'prices', 'menu_id', 'created_at', 'updated_at'], 'required'],
+            [['names', 'prices', 'menu_id'], 'required'],
             [['prices', 'sales', 'views', 'menu_id'], 'integer'],
             [['created_at', 'updated_at'], 'safe'],
             [['names', 'photo'], 'string', 'max' => 255],
@@ -47,14 +47,30 @@ class Item extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'names' => 'Names',
-            'prices' => 'Prices',
-            'sales' => 'Sales',
-            'photo' => 'Photo',
-            'views' => 'Views',
-            'menu_id' => 'Menu ID',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
+            'names' => 'Nomi',
+            'prices' => 'Narxi',
+            'sales' => 'Chegirma',
+            'photo' => 'Rasmi',
+            'views' => 'Ko`rishlar soni',
+            'menu_id' => 'Menu',
+            'created_at' => 'Qo`shilgan sana',
+            'updated_at' => 'O`zgartirilga sana',
         ];
+    }
+
+    public function beforeSave($insert){
+        if($insert){
+
+            $this->created_at = date('Y-m-d H:i:s');
+        }else{
+
+            $this->updated_at = date('Y-m-d H:i:s');
+        }
+        return parent::beforeSave($insert);
+    }
+
+    public function getMenu()
+    {
+        return $this->hasOne(Menu::className(), ['id' => 'menu_id']);
     }
 }
