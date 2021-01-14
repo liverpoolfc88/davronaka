@@ -11,18 +11,22 @@ use yii\bootstrap\Modal;
 
 //$this->title = Yii::t('app', 'Menus');
 $this->title = Yii::t('app', 'Menu');
-//$this->params['breadcrumbs'][] = $this->title;
+$this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <?= Yii::$app->controller->renderPartial("//layouts/headeradmin") ?>
 <!--<script src='https://kit.fontawesome.com/a076d05399.js'></script>-->
-<section style="padding-top: 50px;" class="container">
+<div  class="container  item-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
+    <p>
+        <?= Html::a(Yii::t('app', 'Create Item'), ['create'], ['class' => 'btn btn-success']) ?>
+    </p>
+
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
-        'layout' => '{items}{pager}',
+//        'layout' => '{items}{pager}',
         'columns' => [
             ['class' => 'yii\grid\SerialColumn', 'header' => 't/r'],
 //            [
@@ -50,7 +54,7 @@ $this->title = Yii::t('app', 'Menu');
 //            'update_at',
             [
                 'class' => 'yii\grid\ActionColumn',
-                'header' => Html::a(Yii::t('yii', 'Qo`shish'), ['create'], ['title' => 'Янги банк номини киритиш', 'class' => 'btn btn-danger bank']),
+//                'header' => Html::a(Yii::t('yii', 'Qo`shish'), ['create'], ['title' => 'Янги банк номини киритиш', 'class' => 'btn btn-danger bank']),
                 'template' => '{view}  {update}  {delete}',
 
                 'buttons' => [
@@ -92,25 +96,9 @@ $this->title = Yii::t('app', 'Menu');
         ],
     ]); ?>
 
-</section>
-
-
+</div>
 <style>
-    table .table-striped {
+    #w0 {
         overflow-x: auto;
-        min-height: .01%;
     }
 </style>
-
-
-<?
-Modal::begin([
-    'id' => 'modal',
-]);
-?>
-<div id="modalContent">
-
-</div>
-<?php
-Modal::end();
-?>
