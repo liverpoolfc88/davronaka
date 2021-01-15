@@ -15,10 +15,13 @@ $menu = Menu::find()->all();
 
         <nav class="nav-menu d-none d-lg-block">
             <ul>
-                <li class="active"><a href="index.html">Home</a></li>
-                <? foreach ($menu as $key=>$value): ?>
-                <li><a href="#about"><?=$value->name?></a></li>
-                <? endforeach;?>
+                <li class="active"><a href="#">Asosiy</a></li>
+<!--                --><?// foreach ($menu as $key=>$value): ?>
+<!--                <li><a href="#about">--><?//=$value->name?><!--</a></li>-->
+<!--                --><?// endforeach;?>
+                <li><a href="#about">Biz haqimizda</a></li>
+                <li><a href="#about">MAxsulotlar</a></li>
+                <li><a href="#about">Aloqa</a></li>
 
                 <li><a href="<?=Url::to(['/user/index'])?>">Admin</a></li>
 

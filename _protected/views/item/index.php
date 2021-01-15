@@ -2,8 +2,9 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
-
+use yii\helpers\ArrayHelper;
 use yii\helpers\Url;
+use app\models\Menu;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\ItemSearch */
@@ -55,9 +56,14 @@ $this->params['breadcrumbs'][] = $this->title;
             'prices',
             'sales',
             'views',
-            'menu.name',
-            //'created_at',
-            //'updated_at',
+//            'menu.name',
+            [
+                'attribute' => 'menu_id',
+                'value' => 'menu.name',
+                'filter' => ArrayHelper::map(Menu::find()->all(), 'id', 'name'),
+            ],
+            'created_at',
+            'updated_at',
 
             [
                 'class' => 'yii\grid\ActionColumn',

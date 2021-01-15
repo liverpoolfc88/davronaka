@@ -1,6 +1,8 @@
 <?php
 namespace app\controllers;
 
+use app\models\Item;
+use app\models\Menu;
 use app\models\User;
 use app\models\LoginForm;
 use app\models\AccountActivation;
@@ -14,6 +16,7 @@ use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
+use yii\helpers\ArrayHelper;
 use Yii;
 
 /**
@@ -86,7 +89,15 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $menu = Menu::find()->all();
+        $array = ArrayHelper::toArray($menu);
+        $itemmenu = Item::find()->all();
+        $itemarray = ArrayHelper::toArray($itemmenu);
+//        var_dump($itemarray); die();
+        return $this->render('index',[
+            'array'=>$array,
+            'itemarray'=>$itemarray,
+        ]);
     }
 
     /**
