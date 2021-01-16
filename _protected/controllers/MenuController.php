@@ -14,6 +14,15 @@ use yii\filters\VerbFilter;
  */
 class MenuController extends Controller
 {
+    public function beforeAction($action)
+    {
+        if ((Yii::$app->user->isGuest)) {
+            return $this->goHome();
+        }
+
+        return parent::beforeAction($action);
+    }
+
     /**
      * {@inheritdoc}
      */

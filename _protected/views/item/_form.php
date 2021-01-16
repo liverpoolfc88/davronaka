@@ -20,6 +20,13 @@ use app\models\Menu;
 
     <?= $form->field($model, 'prices')->textInput() ?>
 
+    <?=
+    $form->field($model, 'special')->dropDownList([
+    '0' => 'Oddiy',
+    '1' => 'Maxsus',
+    ]);
+    ?>
+
     <?= $form->field($model, 'sales')->textInput() ?>
 
     <?= $form->field($model, 'photo')->fileInput() ?>

@@ -1,6 +1,7 @@
 <?php
 use yii\helpers\Url;
 use app\models\Menu;
+use yii\helpers\Html;
 $menu = Menu::find()->all();
 ?>
 <!-- ======= Header ======= -->
@@ -16,14 +17,19 @@ $menu = Menu::find()->all();
         <nav class="nav-menu d-none d-lg-block">
             <ul>
                 <li class="active"><a href="#">Asosiy</a></li>
-<!--                --><?// foreach ($menu as $key=>$value): ?>
-<!--                <li><a href="#about">--><?//=$value->name?><!--</a></li>-->
-<!--                --><?// endforeach;?>
                 <li><a href="#about">Biz haqimizda</a></li>
-                <li><a href="#about">MAxsulotlar</a></li>
-                <li><a href="#about">Aloqa</a></li>
+                <li><a href="#allproduct">Maxsulotlar</a></li>
+                <li><a href="#specialproduct">Maxsus</a></li>
+                <li><a href="#saleproduct">Chegirma</a></li>
+                <li><a href="#contact">Aloqa</a></li>
+                <? if (!Yii::$app->user->isGuest):?>
+                <li><a href="<?=Url::to(['/menu/index'])?>">Admin</a></li>
+                <li > <?= Html::a('Chiqish', ['/site/logout'], ['data' => ['method' => 'post']]) ?></li>
+                <? endif;?>
+                <? if (Yii::$app->user->isGuest):?>
+                <li><a href="<?=Url::to(['/site/login'])?>">Kirish</a></li>
+                <? endif;?>
 
-                <li><a href="<?=Url::to(['/user/index'])?>">Admin</a></li>
 
             </ul>
         </nav><!-- .nav-menu -->

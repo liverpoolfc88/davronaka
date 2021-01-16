@@ -18,6 +18,15 @@ class ItemController extends Controller
     /**
      * {@inheritdoc}
      */
+    public function beforeAction($action)
+    {
+        if ((Yii::$app->user->isGuest)) {
+            return $this->goHome();
+        }
+
+        return parent::beforeAction($action);
+    }
+
     public function behaviors()
     {
         return [

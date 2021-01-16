@@ -54,13 +54,16 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             'names',
             'prices',
+            'special',
             'sales',
             'views',
 //            'menu.name',
             [
                 'attribute' => 'menu_id',
                 'value' => 'menu.name',
+                'headerOptions' => ['style' => 'width:200px'],
                 'filter' => ArrayHelper::map(Menu::find()->all(), 'id', 'name'),
+
             ],
             'created_at',
             'updated_at',

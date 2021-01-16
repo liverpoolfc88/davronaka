@@ -10,7 +10,9 @@ $this->title = $model->username;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Users'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="user-view">
+
+<?= Yii::$app->controller->renderPartial("//layouts/headeradmin") ?>
+<div class="container user-view">
 
     <h1>
         <?= Html::encode($this->title) ?>

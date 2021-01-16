@@ -21,6 +21,8 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'prices') ?>
 
+    <?= $form->field($model, 'special') ?>
+
     <?= $form->field($model, 'sales') ?>
 
     <?= $form->field($model, 'photo') ?>

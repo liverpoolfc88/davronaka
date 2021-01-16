@@ -9,7 +9,9 @@ $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Users'), 'url' => ['
 $this->params['breadcrumbs'][] = ['label' => $user->username, 'url' => ['view', 'id' => $user->id]];
 $this->params['breadcrumbs'][] = Yii::t('app', 'Update');
 ?>
-<div class="user-update">
+
+<?= Yii::$app->controller->renderPartial("//layouts/headeradmin") ?>
+<div class="container user-update">
 
     <h1><?= Html::encode($this->title) ?></h1>
 

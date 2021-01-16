@@ -16,6 +16,15 @@ class UserController extends AppController
      * How many users we want to display per page.
      * @var int
      */
+    public function beforeAction($action)
+    {
+        if ((Yii::$app->user->isGuest)) {
+            return $this->goHome();
+        }
+
+        return parent::beforeAction($action);
+    }
+
     protected $_pageSize = 11;
 
     /**

@@ -34,7 +34,7 @@ class Item extends \yii\db\ActiveRecord
     {
         return [
             [['names', 'prices', 'menu_id'], 'required'],
-            [['prices', 'sales', 'views', 'menu_id'], 'integer'],
+            [['prices', 'special', 'sales', 'views', 'menu_id'], 'integer'],
             [['created_at', 'updated_at'], 'safe'],
             [['names', 'photo'], 'string', 'max' => 255],
         ];
@@ -50,6 +50,7 @@ class Item extends \yii\db\ActiveRecord
             'names' => 'Nomi',
             'prices' => 'Narxi',
             'sales' => 'Chegirma',
+            'special' => 'Maxsus',
             'photo' => 'Rasmi',
             'views' => 'Ko`rishlar soni',
             'menu_id' => 'Menu',

@@ -4,11 +4,13 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $user app\models\User */
 
-$this->title = Yii::t('app', 'Create User');
+$this->title = Yii::t('app', 'User qo`shish');
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Users'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="user-create">
+
+<?=Yii::$app->controller->renderPartial("//layouts/headeradmin")?>
+<div class="container user-create">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
