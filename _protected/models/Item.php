@@ -12,6 +12,7 @@ use Yii;
  * @property int $prices
  * @property int|null $sales
  * @property string|null $photo
+ * @property string|null $text
  * @property int|null $views
  * @property int $menu_id
  * @property string $created_at
@@ -36,7 +37,7 @@ class Item extends \yii\db\ActiveRecord
             [['names', 'prices', 'menu_id'], 'required'],
             [['prices', 'special', 'sales', 'views', 'menu_id'], 'integer'],
             [['created_at', 'updated_at'], 'safe'],
-            [['names', 'photo'], 'string', 'max' => 255],
+            [['names','text' ,'photo'], 'string', 'max' => 255],
         ];
     }
 
@@ -52,6 +53,7 @@ class Item extends \yii\db\ActiveRecord
             'sales' => 'Chegirma',
             'special' => 'Maxsus',
             'photo' => 'Rasmi',
+            'text' => 'Text',
             'views' => 'Ko`rishlar soni',
             'menu_id' => 'Menu',
             'created_at' => 'Qo`shilgan sana',

@@ -27,6 +27,8 @@ use app\models\Menu;
     ]);
     ?>
 
+    <?= $form->field($model, 'text')->textInput() ?>
+
     <?= $form->field($model, 'sales')->textInput() ?>
 
     <?= $form->field($model, 'photo')->fileInput() ?>

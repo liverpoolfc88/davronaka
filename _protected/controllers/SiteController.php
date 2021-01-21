@@ -94,8 +94,9 @@ class SiteController extends Controller
 
         $itemmenu = Item::find()
             ->where(['special'=>0])
+            ->asArray()
             ->all();
-        $itemarray = ArrayHelper::toArray($itemmenu);
+//        $itemarray = ArrayHelper::toArray($itemmenu);
 
         $saleitem = Item::find()
             ->andWhere(['not', ['sales' => null]])
@@ -107,10 +108,11 @@ class SiteController extends Controller
             ->all();
         $special =  ArrayHelper::toArray($special);
 
-//        var_dump($saleitem); die();
+//        var_dump($itemarray); die();
         return $this->render('index',[
             'array'=>$array,
-            'itemarray'=>$itemarray,
+//            'itemarray'=>$itemarray,
+            'itemmenu'=>$itemmenu,
             'saleitem'=> $saleitem,
             'special'=> $special
         ]);

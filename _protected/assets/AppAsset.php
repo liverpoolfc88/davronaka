@@ -32,6 +32,7 @@ class AppAsset extends AssetBundle
         '/themes/assets/vendor/owl.carousel/assets/owl.carousel.min.css',
         '/themes/assets/vendor/venobox/venobox.css',
         '/themes/assets/css/style.css',
+        '/themes/tg_call.css',
         'css/bootstrap.min.css',
         'css/style.css',
     ];

@@ -25,8 +25,8 @@ use yii\helpers\Url; ?>
                                 aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem
                                 mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti
                                 vel. Minus et tempore modi architecto.</p>
-                            <a style="text-decoration: none" href="tel:+998943840008" target="_blank"
-                               class="btn-get-started animate__animated animate__fadeInUp scrollto">+998943840008</a>
+                            <a style="text-decoration: none" href="tel:+998979933632" target="_blank"
+                               class="btn-get-started animate__animated animate__fadeInUp scrollto">+998979933632</a>
                         </div>
                     </div>
                 </div>
@@ -41,8 +41,8 @@ use yii\helpers\Url; ?>
                                 aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem
                                 mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti
                                 vel. Minus et tempore modi architecto.</p>
-                            <a style="text-decoration: none" href="tel:+998943840008" target="_blank"
-                               class="btn-get-started animate__animated animate__fadeInUp scrollto">+998943840008</a>
+                            <a style="text-decoration: none" href="tel:+998979933632" target="_blank"
+                               class="btn-get-started animate__animated animate__fadeInUp scrollto">+998979933632</a>
                         </div>
                     </div>
                 </div>
@@ -57,11 +57,12 @@ use yii\helpers\Url; ?>
                                 aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem
                                 mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti
                                 vel. Minus et tempore modi architecto.</p>
-                            <a style="text-decoration: none" href="tel:+998943840008" target="_blank"
-                               class="btn-get-started animate__animated animate__fadeInUp scrollto">+998943840008</a>
+                            <a style="text-decoration: none" href="tel:+998979933632" target="_blank"
+                               class="btn-get-started animate__animated animate__fadeInUp scrollto">+998979933632</a>
                         </div>
                     </div>
                 </div>
+
             </div>
 
             <a class="carousel-control-prev" href="#heroCarousel" role="button" data-slide="prev">
@@ -87,15 +88,15 @@ use yii\helpers\Url; ?>
         <div class="container">
 
             <div class="section-title">
-                <h2>Biz haqimizda</h2>
+                <h2>About Us</h2>
                 <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
                     consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia
                     fugiat sit in iste officiis commodi quidem hic quas.</p>
             </div>
 
             <div class="row">
-                <div style="text-align: center" class="col-lg-6">
-                    <img style="height: 300px; " src="themes/assets/img/davronbek.jpg" class="img-fluid" alt="">
+                <div class="col-lg-6">
+                    <img src="themes/assets/img/davronbek.jpg" class="img-fluid" alt="">
                 </div>
                 <div class="col-lg-6 pt-4 pt-lg-0 content">
                     <h3>Voluptatem dignissimos <strong>provident quasi corporis voluptates</strong></h3>
@@ -111,7 +112,41 @@ use yii\helpers\Url; ?>
                         proident.
                     </p>
 
-                   
+                    <div class="skills-content">
+
+                        <div class="progress">
+                            <span class="skill">HTML <i class="val">100%</i></span>
+                            <div class="progress-bar-wrap">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0"
+                                     aria-valuemax="100"></div>
+                            </div>
+                        </div>
+
+                        <div class="progress">
+                            <span class="skill">CSS <i class="val">90%</i></span>
+                            <div class="progress-bar-wrap">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0"
+                                     aria-valuemax="100"></div>
+                            </div>
+                        </div>
+
+                        <div class="progress">
+                            <span class="skill">JavaScript <i class="val">75%</i></span>
+                            <div class="progress-bar-wrap">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0"
+                                     aria-valuemax="100"></div>
+                            </div>
+                        </div>
+
+                        <div class="progress">
+                            <span class="skill">Photoshop <i class="val">55%</i></span>
+                            <div class="progress-bar-wrap">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0"
+                                     aria-valuemax="100"></div>
+                            </div>
+                        </div>
+
+                    </div>
 
                 </div>
             </div>
@@ -125,7 +160,7 @@ use yii\helpers\Url; ?>
         <div class="container">
 
             <div class="section-title">
-                <h2>Bizning dorilar</h2>
+                <h2>Our Portfolio</h2>
                 <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
                     consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia
                     fugiat sit in iste officiis commodi quidem hic quas.</p>
@@ -143,7 +178,7 @@ use yii\helpers\Url; ?>
             </div>
 
             <div class="row portfolio-container">
-                <? foreach ($itemmenu as $k => $v): ?>
+                <? foreach ($itemarray as $k => $v): ?>
                     <div class="col-lg-4 col-md-6 portfolio-item My<?= $v['menu_id'] ?>">
                         <div class="portfolio-wrap">
                             <img src="<?= $v['photo'] ?>" class="img-fluid" alt="<?= $v['names'] ?>">
@@ -154,12 +189,6 @@ use yii\helpers\Url; ?>
                             <div class="portfolio-links">
                                 <a href="<?= $v['photo'] ?>" data-gall="portfolioGallery" class="venobox"
                                    title="<?= $v['names'] ?>"><i class="bx bx-plus"></i></a>
-                            </div>
-                            <div style="height: 30px; background-color: #ff9c00; text-align:center; padding:5px">
-                                <p>Narxi: <?=$v['prices'] ?></p>
-                            </div>
-                            <div style="height: 30px;color: white; background-color: #ff9c00; text-align:center; padding:5px">
-                                <p><?=$v['text'] ?></p>
                             </div>
                         </div>
                     </div>
@@ -175,7 +204,7 @@ use yii\helpers\Url; ?>
         <div class="container">
 
             <div class="section-title">
-                <h2>Chegirmalar</h2>
+                <h2>Our Team</h2>
                 <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
                     consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia
                     fugiat sit in iste officiis commodi quidem hic quas.</p>
@@ -194,19 +223,11 @@ use yii\helpers\Url; ?>
                                     <span>Chegirma: <?= $val['sales'] ?>%</span>
                                 </div>
                                 <div class="social">
-                                    <a style=" text-decoration: line-through;" ><i> <?= $val['prices'] ?> sum</i></a>
-                                    <a><i> <?= ($val['prices']) - ($val['prices'] * $val['sales'] / 100) ?>sum</i></a>
+                                    <a style=" text-decoration: line-through;" href=""><i> <?= $val['prices'] ?> sum</i></a>
+                                    <a href=""><i> <?= ($val['prices']) - ($val['prices'] * $val['sales'] / 100) ?>
+                                            sum</i></a>
                                 </div>
                             </div>
-                        </div>
-                        <style>
-                            #hov a :hover{
-                                background-color: yellow;
-                                padding: 10px;
-                            }
-                        </style>
-                        <div id="hov" style="text-align: center">
-                            <a  style="text-decoration: none;" ><i> <?= $val['text'] ?></i></a>
                         </div>
                     </div>
                 <? endforeach; ?>
@@ -220,12 +241,12 @@ use yii\helpers\Url; ?>
         <div class="container">
 
             <div class="text-center">
-                <h3>Sog'lik muhim!</h3>
+                <h3>Call To Action</h3>
                 <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
                     pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
                     anim id est laborum.</p>
-                <a style="text-decoration: none" class="cta-btn" href="tel:+998943840008"
-                   target="_blank">+998943840008</a>
+                <a style="text-decoration: none" class="cta-btn" href="tel:+998979933632"
+                   target="_blank">+998979933632</a>
             </div>
 
         </div>
@@ -238,14 +259,14 @@ use yii\helpers\Url; ?>
 
             <div class="row">
                 <? foreach ($special as $key => $val): ?>
-                    <div style="padding-bottom: 20px" class="col-lg-4 col-md-6 d-flex align-items-stretch mb-5 mb-lg-0">
+                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch mb-5 mb-lg-0">
                         <div class="card">
                             <img style="height: 200px" src="<?= $val['photo'] ?>" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <h5 class="card-title"><a><?= $val['names'] ?></a></h5>
-                                <p class="card-text">Narxi: <?=$val['prices']?> sum</p>
-                                <p class="card-text">Narxi: <?=$val['text']?></p>
-                                <a href="https://t.me/OnlineDoktorADB" class="btn" target="_blank">Buyurtma berish</a>
+                                <h5 class="card-title"><a href=""><?= $val['names'] ?></a></h5>
+                                <p class="card-text">Et architecto provident deleniti facere repellat nobis iste. Id
+                                    facere quia quae dolores dolorem tempore</p>
+                                <a href="https://t.me/Liverpoolfc_88" class="btn" target="_blank">Buyurtma berish</a>
                             </div>
                         </div>
                     </div>
@@ -261,7 +282,7 @@ use yii\helpers\Url; ?>
 
         <div class="container">
             <div class="section-title">
-                <h2>Aloqa</h2>
+                <h2>Contact Us</h2>
                 <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
                     consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia
                     fugiat sit in iste officiis commodi quidem hic quas.</p>
@@ -279,17 +300,17 @@ use yii\helpers\Url; ?>
                         <div class="col-lg-6 info d-flex flex-column align-items-stretch">
                             <i class="bx bx-map"></i>
                             <h4>Manzil</h4>
-                            <p>Asaka,<br>Yuqori Bòz, Yoshlik 15</p>
+                            <p>Asaka,<br>Yu.Tuvadoq, 257</p>
                         </div>
                         <div class="col-lg-6 info info-bg d-flex flex-column align-items-stretch">
                             <i class="bx bx-phone"></i>
                             <h4>Tel</h4>
-                            <p>+998943840008<br>+998949933632</p>
+                            <p>+998979933632<br>+998941073632</p>
                         </div>
                         <div class="col-lg-6 info info-bg d-flex flex-column align-items-stretch">
                             <i class="bx bx-envelope"></i>
                             <h4>Email</h4>
-                            <p>davron@mail.ru<br>davronog`a@gmail.com</p>
+                            <p>sardor88.88@mail.ru<br>liverpool88@gmail.com</p>
                         </div>
                         <div class="col-lg-6 info d-flex flex-column align-items-stretch">
                             <i class="bx bx-time-five"></i>
@@ -301,8 +322,9 @@ use yii\helpers\Url; ?>
                 </div>
 
                 <div class="col-lg-6 d-flex align-items-stretch contact-form-wrap">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7644.880707959812!2d72.210006!3d40.611694!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDM2JzQyLjEiTiA3MsKwMTInMzYuMCJF!5e1!3m2!1sru!2s!4v1611204883236!5m2!1sru!2s"
-                            width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1208.0969460163776!2d72.22123656131726!3d40.66293128531802!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDM5JzQ2LjYiTiA3MsKwMTMnMTguOSJF!5e1!3m2!1sru!2s!4v1610707509796!5m2!1sru!2s"
+                            width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen=""
+                            aria-hidden="false" tabindex="0"></iframe>
                 </div>
 
             </div>
@@ -312,10 +334,6 @@ use yii\helpers\Url; ?>
 
 </main><!-- End #main -->
 
-<div class="btns" id="btns">
-<!--    <a href="tel:+ 998 93 983 85 00" target="_blank" class="wh"><img alt="Napa Phone" src="/themes/phone.svg" width="60"/></a>-->
-    <a href="https://t.me/dorixonaVAdavolashDOKTOR" target="_blank" class="tg" ><img alt="Napa Telegram" src="/themes/telegram.svg" width="60"/></a>
-</div>
 <!-- ======= Footer ======= -->
 <footer id="footer">
     <div class="container">
