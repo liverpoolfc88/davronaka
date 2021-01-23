@@ -13,7 +13,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <?=Yii::$app->controller->renderPartial("//layouts/headeradmin")?>
-<div class="item-view">
+<div class="container item-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 

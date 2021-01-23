@@ -17,6 +17,7 @@ use yii\helpers\Html;
                 <li class="active"><a href="<?=Url::home()?>">Asosiy</a></li>
                 <li><a href="<?=Url::to(['/menu/index'])?>">Menu</a></li>
                 <li><a href="<?=Url::to(['/item/index'])?>">Maxsulotlar</a></li>
+                <li><a href="<?=Url::to(['/site-text/index'])?>">Saxifa so`zlari</a></li>
                 <li><a href="<?=Url::to(['/user/index'])?>">User</a></li>
                 <? if (!Yii::$app->user->isGuest) {?>
                     <li > <?= Html::a('Chiqish', ['/site/logout'], ['data' => ['method' => 'post']]) ?></li>

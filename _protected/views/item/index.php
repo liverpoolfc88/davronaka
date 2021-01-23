@@ -32,7 +32,6 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 //            'id',
-
 //            'photo',
             [
 
@@ -115,7 +114,6 @@ $this->params['breadcrumbs'][] = $this->title;
                 'contentOptions'=>['style'=>'white-space: break-spaces; text-align: center;vertical-align: middle;'],
             ],
 //            'updated_at',
-
             [
                 'class' => 'yii\grid\ActionColumn',
                 'template' => '{view}  {update}  {delete}',

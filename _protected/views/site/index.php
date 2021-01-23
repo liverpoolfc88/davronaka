@@ -20,13 +20,10 @@ use yii\helpers\Url; ?>
                     <div class="carousel-background"><img src="themes/assets/img/slide/slide-1.jpg" alt=""></div>
                     <div class="carousel-container">
                         <div class="carousel-content">
-                            <h2 class="animate__animated animate__fadeInDown">Welcome to <span>Shuffle</span></h2>
-                            <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui
-                                aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem
-                                mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti
-                                vel. Minus et tempore modi architecto.</p>
+                            <h2 class="animate__animated animate__fadeInDown"><?=$change[0]['name']?></h2>
+                            <p class="animate__animated animate__fadeInUp"><?=$change[3]['name']?></p>
                             <a style="text-decoration: none" href="tel:+998943840008" target="_blank"
-                               class="btn-get-started animate__animated animate__fadeInUp scrollto">+998943840008</a>
+                               class="btn-get-started animate__animated animate__fadeInUp scrollto"><?=$change[13]['name']?></a>
                         </div>
                     </div>
                 </div>
@@ -36,13 +33,10 @@ use yii\helpers\Url; ?>
                     <div class="carousel-background"><img src="themes/assets/img/slide/slide-2.jpg" alt=""></div>
                     <div class="carousel-container">
                         <div class="carousel-content">
-                            <h2 class="animate__animated animate__fadeInDown">Lorem Ipsum Dolor</h2>
-                            <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui
-                                aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem
-                                mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti
-                                vel. Minus et tempore modi architecto.</p>
+                            <h2 class="animate__animated animate__fadeInDown"><?=$change[1]['name']?></h2>
+                            <p class="animate__animated animate__fadeInUp"><?=$change[4]['name']?></p>
                             <a style="text-decoration: none" href="tel:+998943840008" target="_blank"
-                               class="btn-get-started animate__animated animate__fadeInUp scrollto">+998943840008</a>
+                               class="btn-get-started animate__animated animate__fadeInUp scrollto"><?=$change[13]['name']?></a>
                         </div>
                     </div>
                 </div>
@@ -52,13 +46,10 @@ use yii\helpers\Url; ?>
                     <div class="carousel-background"><img src="themes/assets/img/slide/slide-3.jpg" alt=""></div>
                     <div class="carousel-container">
                         <div class="carousel-content">
-                            <h2 class="animate__animated animate__fadeInDown">Sequi ea ut et est quaerat</h2>
-                            <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui
-                                aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem
-                                mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti
-                                vel. Minus et tempore modi architecto.</p>
+                            <h2 class="animate__animated animate__fadeInDown"><?=$change[2]['name']?></h2>
+                            <p class="animate__animated animate__fadeInUp"><?=$change[5]['name']?></p>
                             <a style="text-decoration: none" href="tel:+998943840008" target="_blank"
-                               class="btn-get-started animate__animated animate__fadeInUp scrollto">+998943840008</a>
+                               class="btn-get-started animate__animated animate__fadeInUp scrollto"><?=$change[13]['name']?></a>
                         </div>
                     </div>
                 </div>
@@ -88,9 +79,7 @@ use yii\helpers\Url; ?>
 
             <div class="section-title">
                 <h2>Biz haqimizda</h2>
-                <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
-                    consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia
-                    fugiat sit in iste officiis commodi quidem hic quas.</p>
+                <p><?=$change[6]['name']?></p>
             </div>
 
             <div class="row">
@@ -98,21 +87,10 @@ use yii\helpers\Url; ?>
                     <img style="height: 300px; " src="themes/assets/img/davronbek.jpg" class="img-fluid" alt="">
                 </div>
                 <div class="col-lg-6 pt-4 pt-lg-0 content">
-                    <h3>Voluptatem dignissimos <strong>provident quasi corporis voluptates</strong></h3>
+                    <h3> <strong><?=$change[7]['name']?></strong></h3>
                     <p class="font-italic">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore
-                        magna aliqua.
+                        <?=$change[8]['name']?>
                     </p>
-                    <p>
-                        Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
-                        in voluptate
-                        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                        proident.
-                    </p>
-
-                   
-
                 </div>
             </div>
 
@@ -126,9 +104,7 @@ use yii\helpers\Url; ?>
 
             <div class="section-title">
                 <h2>Bizning dorilar</h2>
-                <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
-                    consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia
-                    fugiat sit in iste officiis commodi quidem hic quas.</p>
+                <p> <?=$change[9]['name']?></p>
             </div>
 
             <div class="row">
@@ -141,7 +117,6 @@ use yii\helpers\Url; ?>
                     </ul>
                 </div>
             </div>
-
             <div class="row portfolio-container">
                 <? foreach ($itemmenu as $k => $v): ?>
                     <div class="col-lg-4 col-md-6 portfolio-item My<?= $v['menu_id'] ?>">
@@ -158,29 +133,22 @@ use yii\helpers\Url; ?>
                             <div style="height: 30px; background-color: #ff9c00; text-align:center; padding:5px">
                                 <p>Narxi: <?=$v['prices'] ?></p>
                             </div>
-                            <div style="height: 30px;color: white; background-color: #ff9c00; text-align:center; padding:5px">
+                            <div style="color: white; background-color: #ff9c00; text-align:center; padding:5px">
                                 <p><?=$v['text'] ?></p>
                             </div>
                         </div>
                     </div>
                 <? endforeach; ?>
             </div>
-
         </div>
     </section><!-- End Our Portfolio Section -->
-
-
     <!-- ======= Our Team Section ======= -->
     <section id="saleproduct" class="team">
         <div class="container">
-
             <div class="section-title">
                 <h2>Chegirmalar</h2>
-                <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
-                    consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia
-                    fugiat sit in iste officiis commodi quidem hic quas.</p>
+                <p><?=$change[10]['name']?></p>
             </div>
-
             <div class="row">
                 <? $i = 0;
                 foreach ($saleitem as $key => $val): ?>
@@ -200,12 +168,14 @@ use yii\helpers\Url; ?>
                             </div>
                         </div>
                         <style>
-                            #hov a :hover{
+                            /*#hov a :hover{*/
+                            #hov :hover{
                                 background-color: yellow;
-                                padding: 10px;
+                                /*padding: 5px;*/
+                                /*margin: 5px;*/
                             }
                         </style>
-                        <div id="hov" style="text-align: center">
+                        <div id="hov" style="text-align: center;">
                             <a  style="text-decoration: none;" ><i> <?= $val['text'] ?></i></a>
                         </div>
                     </div>
@@ -213,19 +183,15 @@ use yii\helpers\Url; ?>
             </div>
         </div>
     </section><!-- End Our Team Section -->
-
-
     <!-- ======= Cta Section ======= -->
     <section class="cta">
         <div class="container">
 
             <div class="text-center">
                 <h3>Sog'lik muhim!</h3>
-                <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-                    anim id est laborum.</p>
+                    <p> <?=$change[11]['name']?></p>
                 <a style="text-decoration: none" class="cta-btn" href="tel:+998943840008"
-                   target="_blank">+998943840008</a>
+                   target="_blank"><?=$change[13]['name']?></a>
             </div>
 
         </div>
@@ -262,9 +228,7 @@ use yii\helpers\Url; ?>
         <div class="container">
             <div class="section-title">
                 <h2>Aloqa</h2>
-                <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
-                    consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia
-                    fugiat sit in iste officiis commodi quidem hic quas.</p>
+                <p><?=$change[11]['name']?></p>
             </div>
         </div>
 
@@ -284,7 +248,7 @@ use yii\helpers\Url; ?>
                         <div class="col-lg-6 info info-bg d-flex flex-column align-items-stretch">
                             <i class="bx bx-phone"></i>
                             <h4>Tel</h4>
-                            <p>+998943840008<br>+998949933632</p>
+                            <p><br><?=$change[13]['name']?></p>
                         </div>
                         <div class="col-lg-6 info info-bg d-flex flex-column align-items-stretch">
                             <i class="bx bx-envelope"></i>

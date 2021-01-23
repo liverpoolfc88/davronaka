@@ -2,6 +2,7 @@
 namespace app\controllers;
 
 use app\models\Item;
+use app\models\SiteText;
 use app\models\Menu;
 use app\models\User;
 use app\models\LoginForm;
@@ -108,13 +109,15 @@ class SiteController extends Controller
             ->all();
         $special =  ArrayHelper::toArray($special);
 
-//        var_dump($itemarray); die();
+        $change = SiteText::find()->asArray()->all();
+
         return $this->render('index',[
             'array'=>$array,
 //            'itemarray'=>$itemarray,
             'itemmenu'=>$itemmenu,
             'saleitem'=> $saleitem,
-            'special'=> $special
+            'special'=> $special,
+            'change'=>$change
         ]);
     }
     /**
