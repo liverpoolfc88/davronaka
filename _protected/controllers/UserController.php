@@ -43,6 +43,10 @@ class UserController extends AppController
         ]);
     }
 
+    public function actionPhoto(){
+
+    }
+
     /**
      * Displays a single User model.
      *

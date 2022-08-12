@@ -4,12 +4,12 @@ namespace app\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Item;
+use app\models\Books;
 
 /**
- * ItemSearch represents the model behind the search form of `app\models\Item`.
+ * BooksSearch represents the model behind the search form of `app\models\Books`.
  */
-class ItemSearch extends Item
+class BooksSearch extends Books
 {
     /**
      * {@inheritdoc}
@@ -17,8 +17,8 @@ class ItemSearch extends Item
     public function rules()
     {
         return [
-            [['id', 'prices', 'special', 'sales', 'views', 'menu_id'], 'integer'],
-            [['names', 'photo', 'text' , 'created_at', 'updated_at'], 'safe'],
+            [['id'], 'integer'],
+            [['name', 'text', 'file', 'create_at', 'update_at'], 'safe'],
         ];
     }
 
@@ -40,7 +40,7 @@ class ItemSearch extends Item
      */
     public function search($params)
     {
-        $query = Item::find();
+        $query = Books::find();
 
         // add conditions that should always apply here
 
@@ -59,19 +59,13 @@ class ItemSearch extends Item
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'prices' => $this->prices,
-            'special' => $this->special,
-            'sales' => $this->sales,
-            'views' => $this->views,
-            'menu_id' => $this->menu_id,
-//            'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
         ]);
 
-        $query->andFilterWhere(['like', 'names', $this->names])
-            ->andFilterWhere(['like', 'photo', $this->photo])
-            ->andFilterWhere(['like', 'created_at', $this->created_at])
-            ->andFilterWhere(['like', 'text', $this->text]);
+        $query->andFilterWhere(['like', 'name', $this->name])
+            ->andFilterWhere(['like', 'text', $this->text])
+            ->andFilterWhere(['like', 'file', $this->file])
+            ->andFilterWhere(['like', 'create_at', $this->create_at])
+            ->andFilterWhere(['like', 'update_at', $this->update_at]);
 
         return $dataProvider;
     }

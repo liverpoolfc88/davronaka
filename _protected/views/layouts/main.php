@@ -8,7 +8,7 @@ use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
-
+$controlleraction = Yii::$app->controller->action->id;
 AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
@@ -34,7 +34,16 @@ AppAsset::register($this);
 <!--    <link href='https://fonts.googleapis.com/css?family=Ubuntu:400,700' rel='stylesheet' type='text/css'>-->
     <?php $this->head() ?>
 </head>
-<body>
+<style>
+    .fon{
+        background-color: aqua;
+    }
+</style>
+<? if ($controlleraction == 'login'){?>
+<body class="fon">
+<? } else { ?>
+<body >
+<?}?>
 <?php $this->beginBody() ?>
 
     <div style="padding: 0" class="container-fluid">

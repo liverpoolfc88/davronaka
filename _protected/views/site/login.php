@@ -9,11 +9,14 @@ use yii\bootstrap\ActiveForm;
 $this->title = Yii::t('app', 'Login');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="site-login">
 
+<?= Yii::$app->controller->renderPartial("//layouts/header") ?>
+<div class="container site-login">
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <div class="col-md-5 well bs-component">
+    <div class="col-md-4"></div>
+
+    <div class="col-md-4 well bs-component">
 
         <p><?= Yii::t('app', 'Please fill out the following fields to login:') ?></p>
 
@@ -48,5 +51,5 @@ $this->params['breadcrumbs'][] = $this->title;
         <?php ActiveForm::end(); ?>
 
     </div>
-  
+    <div class="col-md-4"></div>
 </div>

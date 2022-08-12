@@ -1,7 +1,10 @@
 <?php
+
 namespace app\controllers;
 
+use app\models\Books;
 use app\models\Item;
+use app\models\Photo;
 use app\models\SiteText;
 use app\models\Menu;
 use app\models\User;
@@ -19,6 +22,9 @@ use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use yii\helpers\ArrayHelper;
 use Yii;
+use yii\web\UploadedFile;
+
+//use yii\web\Response;
 
 /**
  * Site controller.
@@ -94,7 +100,7 @@ class SiteController extends Controller
         $array = ArrayHelper::toArray($menu);
 
         $itemmenu = Item::find()
-            ->where(['special'=>0])
+            ->where(['special' => 0])
             ->asArray()
             ->all();
 //        $itemarray = ArrayHelper::toArray($itemmenu);
@@ -102,35 +108,114 @@ class SiteController extends Controller
         $saleitem = Item::find()
             ->andWhere(['not', ['sales' => null]])
             ->all();
-        $saleitem =  ArrayHelper::toArray($saleitem);
+        $saleitem = ArrayHelper::toArray($saleitem);
 
         $special = Item::find()
-            ->where(['special'=>1])
+            ->where(['special' => 1])
             ->all();
-        $special =  ArrayHelper::toArray($special);
+        $special = ArrayHelper::toArray($special);
 
         $change = SiteText::find()->asArray()->all();
 
-        return $this->render('index',[
-            'array'=>$array,
+
+        $id = (!Yii::$app->user->isGuest)?Yii::$app->user->identity->id:1;
+
+        $photo = Photo::find()->where(['user_id' => $id])->one();
+//        $photodavron = Photo::find()->where(['user_id' => 1])->one();
+//        var_dump($photodavron->photo); die();
+        return $this->render('index', [
+            'array' => $array,
 //            'itemarray'=>$itemarray,
-            'itemmenu'=>$itemmenu,
-            'saleitem'=> $saleitem,
-            'special'=> $special,
-            'change'=>$change
+            'itemmenu' => $itemmenu,
+            'saleitem' => $saleitem,
+            'special' => $special,
+            'change' => $change,
+            'photo' => $photo,
+//            'photodavron' => $photodavron,
+
         ]);
     }
+
     /**
      * Displays the about static page.
      *
      * @return string
      */
-    public function actionAbout()
+    public function actionBook()
     {
-        return $this->render('about');
+        if ((Yii::$app->user->isGuest)) {
+            return $this->goHome();
+        }
+        $change = SiteText::find()->where(['id' => 15])->asArray()->one();
+        $books = Books::find()->all();
+        return $this->render('book', [
+            'books' => $books,
+            'change' => $change,
+
+        ]);
     }
+
+    public function actionBookread($id)
+    {
+        if ((Yii::$app->user->isGuest)) {
+            return $this->goHome();
+        }
+        $model = Books::find()->where(['id' => $id])->one();
+
+        return $this->render('bookread', [
+            'model' => $model,
+        ]);
+    }
+
+    public function actionPhoto()
+    {
+        if ((Yii::$app->user->isGuest)) {
+            return $this->goHome();
+        }
+        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+
+        $filename = $_FILES['file']['name'];
+        $location = "uploads/user/" . $filename;
+        $uploadok = 1;
+
+        $imagefiletype = pathinfo($location, PATHINFO_EXTENSION);
+
+        $valid = array('jpg', 'jpeg', 'png');
+
+        if (!in_array(strtolower($imagefiletype), $valid)) {
+            $uploadok = 0;
+        }
+        if ($uploadok == 0) {
+            echo 0;
+        } else {
+            if (move_uploaded_file($_FILES['file']['tmp_name'], $location)) {
+                echo $location;
+            } else {
+                echo 0;
+            }
+        }
+        $user_id = Yii::$app->user->identity->id;
+        $modelyes = Photo::find()->where(['user_id'=>$user_id])->one();
+        if ($modelyes){
+            $modelyes->photo = $location;
+            $modelyes->save();
+        }
+        else {
+            $model = new Photo();
+            $model->user_id = $user_id;
+            $model->photo = $location;
+            $model->save();
+        }
+        Yii::$app->response->format = 'json';
+        return ['data' => 'success'];
+
+    }
+
     public function actionAdmin()
     {
+        if ((Yii::$app->user->isGuest)) {
+            return $this->goHome();
+        }
         return $this->render('admin');
     }
 
@@ -141,6 +226,9 @@ class SiteController extends Controller
      */
     public function actionContact()
     {
+        if ((Yii::$app->user->isGuest)) {
+            return $this->goHome();
+        }
         $model = new ContactForm();
 
         if (!$model->load(Yii::$app->request->post()) || !$model->validate()) {
@@ -217,9 +305,9 @@ class SiteController extends Controller
         return $this->goHome();
     }
 
-/*----------------*
- * PASSWORD RESET *
- *----------------*/
+    /*----------------*
+     * PASSWORD RESET *
+     *----------------*/
 
     /**
      * Sends email that contains link for password reset action.
@@ -248,7 +336,7 @@ class SiteController extends Controller
     /**
      * Resets password.
      *
-     * @param  string $token Password reset token.
+     * @param string $token Password reset token.
      * @return string|\yii\web\Response
      *
      * @throws BadRequestHttpException
@@ -277,11 +365,11 @@ class SiteController extends Controller
     /**
      * Signs up the user.
      * If user need to activate his account via email, we will display him
-     * message with instructions and send him account activation email with link containing account activation token. 
+     * message with instructions and send him account activation email with link containing account activation token.
      * If activation is not necessary, we will log him in right after sign up process is complete.
-     * NOTE: You can decide whether or not activation is necessary, @see config/params.php
+     * NOTE: You can decide whether or not activation is necessary, @return string|\yii\web\Response
+     * @see config/params.php
      *
-     * @return string|\yii\web\Response
      */
 //    public function actionSignup()
 //    {
@@ -350,14 +438,14 @@ class SiteController extends Controller
 //                Please check your email, we have sent you a message.'));
 //    }
 
-/*--------------------*
- * ACCOUNT ACTIVATION *
- *--------------------*/
+    /*--------------------*
+     * ACCOUNT ACTIVATION *
+     *--------------------*/
 
     /**
      * Activates the user account so he can log in into system.
      *
-     * @param  string $token
+     * @param string $token
      * @return \yii\web\Response
      *
      * @throws BadRequestHttpException

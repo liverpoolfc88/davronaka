@@ -3,6 +3,9 @@ use yii\helpers\Url;
 use app\models\Menu;
 use yii\helpers\Html;
 $menu = Menu::find()->all();
+
+$controlleraction = Yii::$app->controller->action->id;
+$action = Yii::$app->controller->id;
 ?>
 <!-- ======= Header ======= -->
 <header id="header">
@@ -16,12 +19,17 @@ $menu = Menu::find()->all();
 
         <nav class="nav-menu d-none d-lg-block">
             <ul>
-                <li class="active"><a href="#">Asosiy</a></li>
+                <li class="active"><a href="<?=Url::to(['/site/index'])?>">Asosiy</a></li>
+                <? if (($controlleraction != 'book') && ($controlleraction != 'login')): ?>
                 <li><a href="#about">Biz haqimizda</a></li>
                 <li><a href="#allproduct">Maxsulotlar</a></li>
                 <li><a href="#specialproduct">Maxsus</a></li>
                 <li><a href="#saleproduct">Chegirma</a></li>
                 <li><a href="#contact">Aloqa</a></li>
+                <? endif; ?>
+                <? if ($controlleraction != 'login'): ?>
+                <li><a href="<?=Url::to(['/site/book'])?>">Kitoblar</a></li>
+                <? endif; ?>
                 <? if (!Yii::$app->user->isGuest):?>
                 <li><a href="<?=Url::to(['/menu/index'])?>">Admin</a></li>
                 <li > <?= Html::a('Chiqish', ['/site/logout'], ['data' => ['method' => 'post']]) ?></li>

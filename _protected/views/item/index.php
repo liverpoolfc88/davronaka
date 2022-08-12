@@ -5,6 +5,7 @@ use yii\grid\GridView;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Url;
 use app\models\Menu;
+use kartik\export\ExportMenu ;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\ItemSearch */
@@ -24,6 +25,21 @@ $this->params['breadcrumbs'][] = $this->title;
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+    <?
+    $gridColumns = [
+        [ 'class' => 'yii\grid\SerialColumn' ],
+        'id' ,
+        'names' ,
+        'prices' ,
+        'menu_id' ,
+        'created_at' ,
+        [ 'class' => 'yii\grid\ActionColumn' ],
+    ];
+    echo ExportMenu :: widget ([
+     'dataProvider' => $dataProvider ,
+     'columns' => $gridColumns
+]);
+    ?>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -99,14 +115,14 @@ $this->params['breadcrumbs'][] = $this->title;
                 'filter' => ArrayHelper::map(Menu::find()->all(), 'id', 'name'),
 
             ],
-//            'created_at',
-            [
-                'attribute' => 'created_at',
-                'value' => 'created_at',
-                'headerOptions' => ['style' => ' width:100px; text-align: center;vertical-align: middle;'],
-                'contentOptions'=>['style'=>'white-space: break-spaces; text-align: center;vertical-align: middle;'],
-
-            ],
+            'created_at',
+//            [
+//                'attribute' => 'created_at',
+//                'value' => 'created_at',
+//                'headerOptions' => ['style' => ' width:100px; text-align: center;vertical-align: middle;'],
+//                'contentOptions'=>['style'=>'white-space: break-spaces; text-align: center;vertical-align: middle;'],
+//
+//            ],
             [
                 'attribute' => 'updated_at',
                 'value' => 'updated_at',

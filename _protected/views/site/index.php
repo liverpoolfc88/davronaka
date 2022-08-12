@@ -83,8 +83,22 @@ use yii\helpers\Url; ?>
             </div>
 
             <div class="row">
-                <div style="text-align: center" class="col-lg-6">
-                    <img style="height: 300px; " src="themes/assets/img/davronbek.jpg" class="img-fluid" alt="">
+                <div style="text-align: center;  " class="col-lg-6">
+                    <div class="preview">
+                        <img style="height: 300px; " src="<?=(isset($photo))?$photo->photo:''?> " class="img-fluid" alt="">
+                    </div>
+                    <? if (!Yii::$app->user->isGuest):?>
+                    <form method="post" action="" enctype="multipart/form-data" id="myform">
+                        <div style="margin-top: 10px" class="row">
+                            <div class="col-md-6">
+                                <input type="file" id="file" name="file">
+                            </div>
+                            <div class="col-md-6">
+                                <input type="button" class="button" value="Upload" id="but_upload">
+                            </div>
+                        </div>
+                    </form>
+                    <?endif;?>
                 </div>
                 <div class="col-lg-6 pt-4 pt-lg-0 content">
                     <h3> <strong><?=$change[7]['name']?></strong></h3>
@@ -168,11 +182,8 @@ use yii\helpers\Url; ?>
                             </div>
                         </div>
                         <style>
-                            /*#hov a :hover{*/
                             #hov :hover{
                                 background-color: yellow;
-                                /*padding: 5px;*/
-                                /*margin: 5px;*/
                             }
                         </style>
                         <div id="hov" style="text-align: center;">
@@ -277,7 +288,6 @@ use yii\helpers\Url; ?>
 </main><!-- End #main -->
 
 <div class="btns" id="btns">
-<!--    <a href="tel:+ 998 93 983 85 00" target="_blank" class="wh"><img alt="Napa Phone" src="/themes/phone.svg" width="60"/></a>-->
     <a href="https://t.me/dorixonaVAdavolashDOKTOR" target="_blank" class="tg" ><img alt="Napa Telegram" src="/themes/telegram.svg" width="60"/></a>
 </div>
 <!-- ======= Footer ======= -->
@@ -287,10 +297,6 @@ use yii\helpers\Url; ?>
             &copy; Copyright <strong><span></span></strong>. Barcha huquqlar ximoyalangan
         </div>
         <div class="credits">
-            <!-- All the links in the footer should remain intact. -->
-            <!-- You can delete the links only if you purchased the pro version. -->
-            <!-- Licensing information: https://bootstrapmade.com/license/ -->
-            <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/bootstrap-3-one-page-template-free-shuffle/ -->
             <?=date('d.m.Y')?> <a href="https://www.websar.com/">websar.uz</a>
         </div>
     </div>
@@ -298,3 +304,32 @@ use yii\helpers\Url; ?>
 
 <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
 
+<script src="/themes/jquery/jquery.min.js"></script>
+<script>
+    $(function () {
+
+            $("#but_upload").click(function(){
+                var fd = new FormData();
+                var files = $('#file')[0].files[0];
+                fd.append('file',files);
+                $.ajax({
+                    url: 'site/photo',
+                    type: 'post',
+                    data: fd,
+                    contentType: false,
+                    processData: false,
+                    success: function(response){
+
+                        if(response != 0){
+                            $("#img").attr("src",response);
+                            $(".preview img").show(); // Display image element
+                        }else{
+                            alert('file not uploaded');
+                        }
+                    },
+                });
+                window.location.reload();
+            });
+        })
+
+</script>
